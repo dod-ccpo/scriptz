@@ -28,8 +28,8 @@ alpine_setup specific functions.
 
 ## Requirements
 
-- **Python 3.6**
-- **Pipenv**
+- **[Python 3.6](https://www.python.org/downloads/)**
+- **[Pipenv](https://docs.pipenv.org/install/#installing-pipenv)**
 
 **Note:** None of these script fragments are designed to be run by themselves. 
 They should be sourced by the relevant bash script in an application's /script 
