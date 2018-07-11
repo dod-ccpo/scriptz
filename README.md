@@ -28,13 +28,13 @@ alpine_setup specific functions.
 
 ## Requirements
 
-*Note:* None of these script fragments are designed to be run by themselves. They 
+**Note:** None of these script fragments are designed to be run by themselves. They 
 should be sourced by the relevant bash script in an application's /script 
 directory.
 
-- *Python 3.6*
-- *Pip*
-- *Pipenv*
+- **Python 3.6**
+- **Pip**
+- **Pipenv**
 
 #### Ubuntu 18.04 Instructions
 
