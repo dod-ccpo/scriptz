@@ -5,28 +5,28 @@ their /script files. See
 [Scripts to Rule Them All](https://github.com/github/scripts-to-rule-them-all) 
 and an ATAT application repository for details.
 
-- global_header.inc.sh: Run by all /script files at the start of the script.
-- helper_functions.inc.sh: Contains general helper functions; sourced by 
+- `global_header.inc.sh`: Run by all /script files at the start of the script.
+- `helper_functions.inc.sh`: Contains general helper functions; sourced by 
 global_header.inc.sh
-- run_setup: Main logic run by most /script/setup scripts, after they set any
+- `run_setup`: Main logic run by most /script/setup scripts, after they set any
 relevant environment variables. Initializes the local environment to run the app.
-- run_bootstrap: Main logic run by most /script/bootstrap scripts, after they set 
+- `run_bootstrap`: Main logic run by most /script/bootstrap scripts, after they set 
 any relevant environment variables. Installs application dependencies.
-- run_test: Main logic run by most /script/test scripts, after they set any
+- `run_test`: Main logic run by most /script/test scripts, after they set any
 relevant environment variables. Executes lint, static analysis, and unit tests.
-- run_alpine_setup: Main logic run by most /script/alpine_setup scripts, after 
+- `run_alpine_setup`: Main logic run by most /script/alpine_setup scripts, after 
 they set any relevant environment variables. Adds Alpine Linux specific system 
 dependencies required to run the app (used by Docker builds).
 
 ## Requirements
 
-Note: None of these script fragments are designed to be run by themselves. They 
+*Note:* None of these script fragments are designed to be run by themselves. They 
 should be sourced by the relevant bash script in an application's /script 
 directory.
 
-### python
-
-Install python3, if it's not installed already.
+- *Python 3.6*
+- *Pip*
+- *Pipenv*
 
 #### Ubuntu 18.04 Instructions
 
