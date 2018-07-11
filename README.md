@@ -17,6 +17,14 @@ relevant environment variables. Executes lint, static analysis, and unit tests.
 - `run_alpine_setup`: Main logic run by most /script/alpine_setup scripts, after 
 they set any relevant environment variables. Adds Alpine Linux specific system 
 dependencies required to run the app (used by Docker builds).
+- `setup_functions.inc.sh`: Sourced by run_setup; contains setup specific 
+functions.
+- `bootstrap_functions.inc.sh`: Sourced by run_bootstrap; contains bootstrap 
+specific functions.
+- `test_functions.inc.sh`: Sourced by run_test; contains test specific 
+functions.
+- `alpine_setup_functions.inc.sh`: Sourced by run_alpine_setup; contains 
+alpine_setup specific functions.
 
 ## Requirements
 
