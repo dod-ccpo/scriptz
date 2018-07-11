@@ -28,26 +28,24 @@ alpine_setup specific functions.
 
 ## Requirements
 
-**Note:** None of these script fragments are designed to be run by themselves. They 
-should be sourced by the relevant bash script in an application's /script 
-directory.
-
 - **Python 3.6**
 - **Pip**
 - **Pipenv**
 
+**Note:** None of these script fragments are designed to be run by themselves. They 
+should be sourced by the relevant bash script in an application's /script 
+directory.
+
 #### Ubuntu 18.04 Instructions
 
-Install pip.
-
+Install pip:
 ```
 sudo apt install python3-distutils
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python3 get-pip.py --user
 ```
 
-Install pipenv.
-
+Install pipenv:
 ```
 pip install --user pipenv
 ```
