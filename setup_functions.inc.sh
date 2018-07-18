@@ -59,5 +59,5 @@ reset_db() {
   createdb "${database_name}"
 
   # Run migrations
-  run_command "alembic upgrade head"
+  migrate_db
 }

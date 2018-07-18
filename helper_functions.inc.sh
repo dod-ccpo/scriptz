@@ -26,3 +26,8 @@ run_command () {
   pipenv run ${cmd}
   return $?
 }
+
+migrate_db() {
+  # Run migrations
+  run_command "alembic upgrade head"
+}
