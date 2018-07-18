@@ -20,6 +20,11 @@ if [ -z "${PIP_VERSION+is_set}" ]; then
   PIP_VERSION="10.*"
 fi
 
+# If RESET_DB is not set, set it to "false"
+if [ -z "${RESET_DB+is_set}" ]; then
+  RESET_DB="false"
+fi
+
 ## Main
 # Remove any existing node modules as part of initial app setup or reset
 rm -rf ./node_modules
@@ -40,3 +45,13 @@ fi
 
 # Install application dependencies
 ./script/bootstrap
+
+if [ "${RESET_DB}" = "true" ]; then
+  if [ -n "${DATABASE_NAME}" ]; then
+    echo "ERROR: RESET_DB is set, but DATABASE_NAME is not!"
+    echo "Skipping database reset..."
+  else
+    echo "Resetting database..."
+    reset_db "${DATABASE_NAME}"
+  fi
+fi
