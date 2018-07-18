@@ -26,7 +26,7 @@ functions.
 specific functions.
 - `test_functions.inc.sh`: Sourced by run_test; contains test specific 
 functions.
-- `update_functions.inc.sh`: Sources by run_update; contains update specific
+- `update_functions.inc.sh`: Sourced by run_update; contains update specific
  functions.
 - `alpine_setup_functions.inc.sh`: Sourced by run_alpine_setup; contains 
 alpine_setup specific functions.
