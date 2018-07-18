@@ -17,6 +17,9 @@ relevant environment variables. Executes lint, static analysis, and unit tests.
 - `run_update`: Main logic run by most /script/update scripts, after they set any
  relevant environment variables. Executes application dependency updates, and
  potentially DB migrations.
+- `run_dev_server`: Main logic run by most /script/dev_server scripts, after any
+ relevant environment variables are set. Launches an application server in DEBUG
+ mode in the background.
 - `run_alpine_setup`: Main logic run by most /script/alpine_setup scripts, after 
 they set any relevant environment variables. Adds Alpine Linux specific system 
 dependencies required to run the app (used by Docker builds).
@@ -28,6 +31,8 @@ specific functions.
 functions.
 - `update_functions.inc.sh`: Sourced by run_update; contains update specific
  functions.
+- `dev_server_functions.inc.sh`: Sourced by run_dev_server; contains dev_server
+ specific functions.
 - `alpine_setup_functions.inc.sh`: Sourced by run_alpine_setup; contains 
 alpine_setup specific functions.
 
