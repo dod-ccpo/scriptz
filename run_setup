@@ -48,10 +48,10 @@ fi
 
 if [ "${RESET_DB}" = "true" ]; then
   if [ -n "${DATABASE_NAME}" ]; then
-    echo "ERROR: RESET_DB is set, but DATABASE_NAME is not!"
-    echo "Skipping database reset..."
-  else
     echo "Resetting database..."
     reset_db "${DATABASE_NAME}"
+  else
+    echo "ERROR: RESET_DB is set, but DATABASE_NAME is not!"
+    echo "Skipping database reset..."
   fi
 fi
