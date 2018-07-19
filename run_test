@@ -12,6 +12,8 @@ fi
 ## Main
 if [ "${RUN_PYTHON_TESTS}" = "true" ]; then
   python_test_status=0
+  set +e
+
   run_python_lint "${PYTHON_FILES}"
   ((python_test_status+=$?))
   run_python_static_analysis "${PYTHON_FILES}"
@@ -23,4 +25,6 @@ if [ "${RUN_PYTHON_TESTS}" = "true" ]; then
     echo "Failed to pass one or more Python checks"
     exit ${python_test_status}
   fi
+
+  set -e
 fi
