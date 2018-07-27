@@ -1,9 +1,14 @@
 # alpine_setup_functions: Functions used by the run_alpine_setup script
 
 update_system_packages() {
+  local apk_cache_dir="/etc/apk/cache"
+
   apk update
   apk upgrade
-  apk cache clean
+
+  if [ -d "${apk_cache_dir}" ] || [ -L "${apk_cache_dir}" ]; then
+    apk cache clean
+  fi
 }
 
 install_package() {
