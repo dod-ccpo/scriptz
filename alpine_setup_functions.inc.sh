@@ -3,6 +3,7 @@
 update_system_packages() {
   apk update
   apk upgrade
+  apk cache clean
 }
 
 install_package() {
