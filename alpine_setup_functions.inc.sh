@@ -14,7 +14,7 @@ update_system_packages() {
 install_package() {
   local package_name=${1}
 
-  apk add ${1}
+  apk add "${package_name}"
   return $?
 }
 
@@ -31,6 +31,6 @@ add_user() {
   local primary_group="${2}"
   local uid="${3}"
 
-  adduser -u "${3}" -D -S -G "${primary_group}" "${username}"
+  adduser -u "${uid}" -D -S -G "${primary_group}" "${username}"
   return $?
 }
