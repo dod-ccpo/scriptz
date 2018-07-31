@@ -50,7 +50,7 @@ if [ "${RESET_DB}" = "true" ]; then
   if [ -n "${DATABASE_NAME}" ]; then
     echo "Resetting database..."
     # Fetch postgres settings and set them as ENV vars
-    ./script/get_db_settings
+    source ./script/get_db_settings
     # Reset the db
     reset_db "${DATABASE_NAME}"
   else
