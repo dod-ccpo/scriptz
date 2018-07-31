@@ -8,6 +8,6 @@ install_python_packages() {
 }
 
 install_node_packages() {
-  npm install
+  yarn install
   return $?
 }
