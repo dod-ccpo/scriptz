@@ -31,3 +31,18 @@ migrate_db() {
   # Run migrations
   run_command "alembic upgrade head"
 }
+
+reset_db() {
+  local database_name="${1}"
+
+  # If the DB exists, drop it
+  set +e
+  dropdb "${database_name}"
+  set -e
+
+  # Create a fresh DB
+  createdb "${database_name}"
+
+  # Run migrations
+  migrate_db
+}

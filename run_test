@@ -9,6 +9,20 @@ if [ -z "${PYTHON_FILES+is_set}" ]; then
   PYTHON_FILES="app.py"
 fi
 
+# reset test database
+if [ "${RESET_DB}" = "true" ]; then
+  if [ -n "${DATABASE_NAME}" ]; then
+    echo "Resetting database..."
+    # Fetch postgres settings and set them as ENV vars
+    source ./script/get_db_settings
+    # Reset the db
+    reset_db "${DATABASE_NAME}"
+  else
+    echo "ERROR: RESET_DB is set, but DATABASE_NAME is not!"
+    echo "Skipping database reset..."
+  fi
+fi
+
 ## Main
 if [ "${RUN_PYTHON_TESTS}" = "true" ]; then
   python_test_status=0
