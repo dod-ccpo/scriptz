@@ -9,9 +9,15 @@ if [ -z "${PIPENV_INSTALL_FLAGS+is_set}" ]; then
   PIPENV_INSTALL_FLAGS="--dev"
 fi
 
+# If this is a CI build, only use the latest lock file for dep install
+if [ "${CIBUILD}" = "true" ] || [ "${FLASK_ENV}" = "ci" ]; then
+  PIPENV_INSTALL_FLAGS+=" --ignore-pipfile"
+fi
+
 ## Main
 if [ "${INSTALL_PYTHON_PACKAGES}" = "true" ]; then
   install_python_packages "${PIPENV_INSTALL_FLAGS}"
+  pipenv clean --verbose
 fi
 
 if [ "${INSTALL_NODE_PACKAGES}" = "true" ]; then
