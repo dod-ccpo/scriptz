@@ -11,14 +11,15 @@ fi
 
 # reset test database
 if [ "${RESET_DB}" = "true" ]; then
-  if [ -n "${DATABASE_NAME}" ]; then
-    echo "Resetting database..."
-    # Fetch postgres settings and set them as ENV vars
-    source ./script/get_db_settings
+  # Fetch postgres settings and set them as ENV vars
+  source ./script/get_db_settings
+
+  if [ -n "${PGDATABASE}" ]; then
+    echo "Resetting database ${PGDATABASE}..."
     # Reset the db
-    reset_db "${DATABASE_NAME}"
+    reset_db "${PGDATABASE}"
   else
-    echo "ERROR: RESET_DB is set, but DATABASE_NAME is not!"
+    echo "ERROR: RESET_DB is set, but PGDATABASE is not!"
     echo "Skipping database reset..."
   fi
 fi
