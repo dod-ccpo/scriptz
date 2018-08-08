@@ -22,5 +22,11 @@ fi
 update_system_packages
 install_package "bash"
 install_package "dumb-init"
+if [ ! -z "${ADDITIONAL_PACKAGES+is_set}" ]; then
+  for package in ${ADDITIONAL_PACKAGES}
+  do
+    install_package "${package}"
+  done
+fi
 add_group "${APP_GROUP}" "${APP_GID}"
 add_user "${APP_USER}" "${APP_GROUP}" "${APP_UID}"
