@@ -8,7 +8,7 @@ set_db_env_vars () {
     # (NOTE: all whitespaces are removed from each line)
     while read -r DBVAR
     do
-	if ! $(env | grep -qFle "${DBVAR}"); then
+	if ! $(env | grep -qFle "${DBVAR%%=*}"); then
             eval "export ${DBVAR}"
 	fi
     done < <(grep -Ee '^PG' "${config_file}" | sed 's/ //g')
