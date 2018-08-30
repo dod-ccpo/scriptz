@@ -17,16 +17,26 @@ install_pipenv() {
   return "${return_code}"
 }
 
-create_virtual_environment() {
-  default_python_version=3.6
-  # Parse out the required Python version from the Pipfile
-  python_version=$(grep python_version ./Pipfile | cut -d '"' -f 2)
+check_for_existing_virtual_environment() {
+  local python_version="${1}"
+  local target_python_version_regex="^Python ${python_version}"
 
-  # If we ended up with an empty string for the required Python version,
-  # specify the default version
-  if [ -z "${python_version}" ]; then
-    python_version="${default_python_version}"
+  # Check for existing venv, and if one exists, save the Python version string
+  existing_venv_version=$($(pipenv --py) --version)
+  if [ "$?" = "0" ]; then
+    # Existing venv; see if the Python version matches
+    if [[ "${existing_venv_version}" =~ ${target_python_version_regex} ]]; then
+      # Version strings match, valid existing environment is present
+      return 0
+    fi
   fi
+
+  # No valid virtual environment found
+  return 1
+}
+
+create_virtual_environment() {
+  local python_version="${1}"
 
   # Create a new virtual environment for the app
   # The environment will be in a directory called .venv off the app
