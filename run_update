@@ -1,4 +1,4 @@
-#  update: Bring an existing application up-to-date 
+#  update: Bring an existing application up-to-date
 #
 
 # Load update functions
@@ -18,3 +18,5 @@ source ./script/bootstrap
 if [ "${MIGRATE_DB}" = "true" ]; then
   migrate_db
 fi
+
+seed_db

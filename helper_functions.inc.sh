@@ -32,6 +32,11 @@ migrate_db() {
   run_command "alembic upgrade head"
 }
 
+seed_db() {
+  run_command "python ./script/seed_roles.py"
+  run_command "python ./script/ingest_pe_numbers.py"
+}
+
 reset_db() {
   local database_name="${1}"
 
@@ -45,4 +50,7 @@ reset_db() {
 
   # Run migrations
   migrate_db
+
+  # Seed database data
+  seed_db
 }
