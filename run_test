@@ -43,3 +43,7 @@ if [ "${RUN_PYTHON_TESTS}" = "true" ]; then
 
   set -e
 fi
+
+if [ "${RUN_JS_TESTS}" = "true" ]; then
+  run_javascript_tests
+fi

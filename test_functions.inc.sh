@@ -18,3 +18,8 @@ run_python_unit_tests() {
   run_command "python -m pytest -s"
   return $?
 }
+
+run_javascript_tests() {
+  run_command "yarn test:coverage"
+  return $?
+}
