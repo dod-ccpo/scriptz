@@ -34,7 +34,6 @@ migrate_db() {
 
 seed_db() {
   run_command "python ./script/seed_roles.py"
-  run_command "python ./script/ingest_pe_numbers.py"
 }
 
 reset_db() {
